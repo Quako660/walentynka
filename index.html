@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walentynka</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+        }
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            margin: 50px;
+            animation: heartbeat 1.5s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); }
+            100% { transform: scale(1) rotate(-45deg); }
+        }
+        .heart:hover {
+            animation: heartbeat 0.5s infinite;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #quote {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #d90000;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+    <button onclick="showQuote()">Kocham cię</button>
+    <p id="quote"></p>
+
+    <script>
+        const quotes = [
+            "Kocham Cię bardziej niż czekoladę! 🍫❤️",
+            "Jesteś moim sercem i duszą! 💕",
+            "Dzięki Tobie każdy dzień jest piękny! ☀️",
+            "Miłość to my! ❤️😊"
+			"Jesteś najpiękniejszym darem mojego życia! 🎁❤️",
+            "Każda chwila z Tobą to najpiękniejszy moment! ⏳💖",
+            "Twoje uśmiechy są moim ulubionym widokiem! 😊💘",
+            "Bez Ciebie moje serce bije wolniej! 💓",
+            "Jesteś moją gwiazdą na nocnym niebie! ⭐❤️",
+            "Każdy dzień z Tobą to spełnienie marzeń! ✨💕"
+        ];
+
+        function showQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = quotes[randomIndex];
+        }
+    </script>
+</body>
+</html>
